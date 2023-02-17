@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewTradeController;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,6 @@ use App\Http\Controllers\NewTradeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Controller::class, 'index'])->name('index');
+
 Route::post('/new-trade', [NewTradeController::class, 'create'])->name('new-trade');
